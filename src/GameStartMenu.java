@@ -13,6 +13,8 @@ import javax.swing.JTextField;
 
 public class GameStartMenu extends JFrame {
 	
+	String path = "img/";
+	
 	public GameStartMenu() {
 		setSize(500, 600);
 		setTitle("Tic Tac Toe | Main Menu");
@@ -30,7 +32,7 @@ public class GameStartMenu extends JFrame {
 		JPanel logoPanel = new JPanel();
 		add(logoPanel);
 		logoPanel.setLayout(null);
-		JLabel imgJLabel = new JLabel(new ImageIcon("src/img/gamelogo.png"));
+		JLabel imgJLabel = new JLabel(new ImageIcon(path + "gamelogo.png"));
 		logoPanel.add(imgJLabel);
 		
 		imgJLabel.setBounds(0, 0, 500, 80);
@@ -79,7 +81,7 @@ public class GameStartMenu extends JFrame {
 		
 		
 		
-		startButton = new JButton(new ImageIcon("src/img/play.png"));
+		startButton = new JButton(new ImageIcon(path + "play.png"));
 		mainPanel.add(startButton);
 		startButton.setBounds(223, 340, 50, 85);
 		startButton.setBorderPainted(false);

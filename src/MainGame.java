@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 
 public class MainGame extends JFrame implements ActionListener{
 	
+	String path = "img/";
+	
 	JButton cellsButton[] = new JButton[9];
 	int currentHand = 0;
 	static int game[][] = {
@@ -69,7 +71,7 @@ public class MainGame extends JFrame implements ActionListener{
 		//hud.setBackground(Color.red);
 		
 		
-		JLabel gameLay = new JLabel(new ImageIcon("src/img/board.png"));
+		JLabel gameLay = new JLabel(new ImageIcon(path + "board.png"));
 		board.add(gameLay);
 		gameLay.setBounds(0, 0, 450, 450);
 		
@@ -175,11 +177,11 @@ public class MainGame extends JFrame implements ActionListener{
 	void fill(int i, int j, int btn) {
 		game[i][j] = currentHand;
 		if(currentHand == 0) {
-			cellsButton[btn].setIcon(new ImageIcon("src/img/0.png"));
+			cellsButton[btn].setIcon(new ImageIcon(path + "0.png"));
 			
 			
 		}else {
-			cellsButton[btn].setIcon(new ImageIcon("src/img/x.png"));
+			cellsButton[btn].setIcon(new ImageIcon(path + "x.png"));
 		}
 		
 		cellsButton[btn].setEnabled(false);

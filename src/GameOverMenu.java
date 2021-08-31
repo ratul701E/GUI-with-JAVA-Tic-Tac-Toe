@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 public class GameOverMenu extends JFrame implements ActionListener{
 	
 	JButton rematchButton, mainMenuButton, exitButton;
+	String path = "img/";
 	
 	public GameOverMenu() {
 		setSize(350, 250);
@@ -51,21 +52,21 @@ public class GameOverMenu extends JFrame implements ActionListener{
 		
 		
 		
-		rematchButton = new JButton("Rematch", new ImageIcon("src/img/rematch.png"));
+		rematchButton = new JButton("Rematch", new ImageIcon(path + "rematch.png"));
 		rematchButton.setBorderPainted(false);
 		rematchButton.setContentAreaFilled(false);
 		rematchButton.setFocusable(false);
 		rematchButton.setFont(new Font("Lato", Font.BOLD, 12));
 		rematchButton.addActionListener(this);
 		
-		mainMenuButton = new JButton("Main Menu", new ImageIcon("src/img/mainMenu.png"));
+		mainMenuButton = new JButton("Main Menu", new ImageIcon(path + "mainMenu.png"));
 		mainMenuButton.setBorderPainted(false);
 		mainMenuButton.setContentAreaFilled(false);
 		mainMenuButton.setFocusable(false);
 		mainMenuButton.setFont(new Font("Lato", Font.BOLD, 12));
 		mainMenuButton.addActionListener(this);
 		
-		exitButton = new JButton("Exit", new ImageIcon("src/img/exit.png"));
+		exitButton = new JButton("Exit", new ImageIcon(path + "exit.png"));
 		exitButton.setBorderPainted(false);
 		exitButton.setContentAreaFilled(false);
 		exitButton.setFocusable(false);
