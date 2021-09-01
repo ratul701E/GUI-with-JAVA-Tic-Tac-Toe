@@ -13,9 +13,10 @@ import javax.swing.JPanel;
 public class GameOverMenu extends JFrame implements ActionListener{
 	
 	JButton rematchButton, mainMenuButton, exitButton;
-	String path = "img/";
+	String path = "src/img/";
 	
 	public GameOverMenu() {
+		setIconImage(new ImageIcon(path + "game.png").getImage());
 		setSize(350, 250);
 		setTitle("Game Over");
 		setLocationRelativeTo(null);
@@ -39,12 +40,17 @@ public class GameOverMenu extends JFrame implements ActionListener{
 		actionHudPanel.setLayout(new GridBagLayout());
 		
 		JLabel winner = new JLabel(IngameTempData.winner);
+		int x = 170;
+		if(IngameTempData.winner.equals("DRAW")) x = 135;
 		winnerNamePanel.add(winner);
-		winner.setBounds(170, 3, 120, 80);
+		winner.setBounds(x, 3, 120, 80);
 		winner.setFont(new Font("Ariel", Font.PLAIN, 20));
 		winner.setForeground(new Color(126, 191, 124));
 		
+		
+		
 		JLabel winnerText = new JLabel("Winner : ");
+		if(IngameTempData.winner.equals("DRAW")) winnerText.setVisible(false);
 		winnerNamePanel.add(winnerText);
 		winnerText.setBounds(40, 0, 125, 80);
 		winnerText.setFont(new Font("Ariel", Font.PLAIN, 30));

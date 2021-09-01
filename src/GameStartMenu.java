@@ -13,9 +13,10 @@ import javax.swing.JTextField;
 
 public class GameStartMenu extends JFrame {
 	
-	String path = "img/";
+	String path = "src/img/";
 	
 	public GameStartMenu() {
+		setIconImage(new ImageIcon(path + "game.png").getImage());
 		setSize(500, 600);
 		setTitle("Tic Tac Toe | Main Menu");
 		setLocationRelativeTo(null);
@@ -69,11 +70,11 @@ public class GameStartMenu extends JFrame {
 		p1 = new JTextField();
 		p1.setFont(new Font("Ariel", Font.PLAIN, 18));
 		p1.setForeground(new Color(88, 172, 56));
-		p1.setText("Player 1");
+		p1.setText(new String(IngameTempData.p1Name.getBytes(), 0, IngameTempData.p1Name.length()-3));
 		p2 = new JTextField();
 		p2.setFont(new Font("Ariel", Font.PLAIN, 18));
 		p2.setForeground(Color.red);
-		p2.setText("Player 2");
+		p2.setText(new String(IngameTempData.p2Name.getBytes(), 0, IngameTempData.p2Name.length()-3));
 		mainPanel.add(p1);
 		mainPanel.add(p2);
 		p1.setBounds(170, 190, 150, 40);
@@ -103,8 +104,8 @@ public class GameStartMenu extends JFrame {
 				
 				
 				dispose();
-				IngameTempData.p1Name = p1.getText();
-				IngameTempData.p2Name = p2.getText();
+				IngameTempData.p1Name = p1.getText() + " [O]";
+				IngameTempData.p2Name = p2.getText() + " [X]";;
 				new MainGame();
 				
 			}

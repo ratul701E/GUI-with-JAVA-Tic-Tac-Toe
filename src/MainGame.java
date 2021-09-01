@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 public class MainGame extends JFrame implements ActionListener{
 	
-	String path = "img/";
+	String path = "src/img/";
 	
 	JButton cellsButton[] = new JButton[9];
 	int currentHand = 0;
@@ -26,7 +26,7 @@ public class MainGame extends JFrame implements ActionListener{
 	
 	public MainGame() {
 		disposible = false;
-		
+		setIconImage(new ImageIcon(path + "game.png").getImage());
 		setSize(500, 650);
 		setTitle("Tic Tac Toe");
 		setLocationRelativeTo(null);
@@ -38,7 +38,7 @@ public class MainGame extends JFrame implements ActionListener{
 		
 		board = new JPanel();
 		add(board);
-		//board.setBackground(Color.red);
+		//board.setBackground(Color.black);
 		board.setBounds(18,140, 450, 500);
 		board.setLayout(null);
 	
@@ -50,7 +50,19 @@ public class MainGame extends JFrame implements ActionListener{
 		
 		JLabel player1 = new JLabel(IngameTempData.p1Name);
 		JLabel player2 = new JLabel(IngameTempData.p2Name);
-		currentTurn = new JLabel("Current Turn: " + IngameTempData.p1Name);
+		currentTurn = new JLabel("Turn For " + IngameTempData.p1Name);
+		
+		JLabel p1Point = new JLabel(Integer.toString(IngameTempData.p1Score));
+		hud.add(p1Point);
+		p1Point.setBounds(20, 5, 50, 50);
+		p1Point.setFont(new Font("Ariel", Font.PLAIN, 20));
+		p1Point.setForeground(new Color(88, 172, 56));
+		
+		JLabel p2Point = new JLabel(Integer.toString(IngameTempData.p2Score));
+		hud.add(p2Point);
+		p2Point.setBounds(450, 5, 50, 50);
+		p2Point.setFont(new Font("Ariel", Font.PLAIN, 20));
+		p2Point.setForeground(Color.red);
 		
 		hud.add(player1);
 		hud.add(player2);
@@ -58,11 +70,11 @@ public class MainGame extends JFrame implements ActionListener{
 		hud.setLayout(null);
 		
 		player1.setBounds(20, 70, 100, 40);
-		player1.setFont(new Font("Ariel", Font.PLAIN, 25));
+		player1.setFont(new Font("Ariel", Font.PLAIN, 20));
 		player1.setForeground(new Color(88, 172, 56));
 		
 		player2.setBounds(360, 70, 100, 40);
-		player2.setFont(new Font("Ariel", Font.PLAIN, 25));
+		player2.setFont(new Font("Ariel", Font.PLAIN, 20));
 		player2.setForeground(Color.red);
 		
 		currentTurn.setBounds(150, 5, 300, 50);
@@ -166,11 +178,11 @@ public class MainGame extends JFrame implements ActionListener{
 	void changeHand() {
 		if(currentHand == 1) {
 			currentHand = 0;
-			currentTurn.setText("Current Turn: " + IngameTempData.p1Name);
+			currentTurn.setText("Turn For " + IngameTempData.p1Name);
 		}
 		else {
 			currentHand = 1;
-			currentTurn.setText("Current Turn: " + IngameTempData.p2Name);
+			currentTurn.setText("Turn For " + IngameTempData.p2Name);
 		}
 	}
 	
